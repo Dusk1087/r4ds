@@ -20,3 +20,8 @@ students <- students |>
 
 students |> 
   distinct(age)
+
+students |> 
+  mutate(
+    age = parse_number(if_else(age == 'five', '5', age))
+  )

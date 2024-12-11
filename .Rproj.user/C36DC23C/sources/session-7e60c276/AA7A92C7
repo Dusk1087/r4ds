@@ -3,7 +3,7 @@
     "path": "~/r_repository/r4ds/ch7_practice_importing_data.r",
     "project_path": "ch7_practice_importing_data.r",
     "type": "r_source",
-    "hash": "453495279",
+    "hash": "3514911776",
     "contents": "",
     "dirty": false,
     "created": 1733837501339.0,
@@ -13,15 +13,15 @@
         "tempName": "Untitled1",
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "3,0",
+        "cursorPosition": "25,56",
         "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1733843420,
+    "lastKnownWriteTime": 1733853356,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1733843420664,
+    "last_content_update": 1733853356180,
     "read_only": false,
     "read_only_alternatives": []
 }

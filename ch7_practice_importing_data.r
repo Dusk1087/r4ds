@@ -1,4 +1,5 @@
 library(tidyverse)
+<<<<<<< HEAD
 students <- read_csv('./data/students.csv', na = c("N/A", ""))
 view(students)
 
@@ -25,4 +26,31 @@ annoying |>
     one = `1`,
     two = `2`,
     three = `3`
+=======
+library(janitor)
+students_raw <- read_csv('./data/students.csv', na = c("N/A",""))
+view(students_raw)
+# students |> 
+#   rename(
+#     student_id = 'Student ID',
+#     full_name = 'Full Name'
+#   )
+students <- students_raw |> 
+  clean_names() 
+
+students
+
+students %>% 
+  distinct(meal_plan)
+
+students <- students |> 
+  mutate(meal_plan = factor(meal_plan))
+
+students |> 
+  distinct(age)
+
+students |> 
+  mutate(
+    age = parse_number(if_else(age == 'five', '5', age))
+>>>>>>> eb1e05fb16bb6bc705e506fa72e354b45a4fe16b
   )

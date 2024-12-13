@@ -240,3 +240,19 @@ mpg |>
   ggplot(aes(displ, hwy)) +
   geom_point(shape = 16, size = 10, alpha = .5, color = "white") +
   geom_point(aes(color = drv), size = 5) 
+
+
+# 12/13 at 17:51 ----------------------------------------------------------
+
+mpg |> 
+  ggplot(aes(x = displ, y = hwy)) +
+  geom_point() +
+  facet_wrap(~cyl)
+
+mpg |> 
+  ggplot(aes(x = displ, y = hwy)) +
+  geom_point() +
+  facet_grid(drv ~ cyl, scales = "free")
+
+mpg |> 
+  distinct(drv, cyl)

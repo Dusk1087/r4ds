@@ -240,3 +240,56 @@ mpg |>
   ggplot(aes(displ, hwy)) +
   geom_point(shape = 16, size = 10, alpha = .5, color = "white") +
   geom_point(aes(color = drv), size = 5) 
+
+
+# 12/13 at 17:51 ----------------------------------------------------------
+
+mpg |> 
+  ggplot(aes(x = displ, y = hwy)) +
+  geom_point() +
+  facet_wrap(~cyl)
+
+mpg |> 
+  ggplot(aes(x = displ, y = hwy)) +
+  geom_point() +
+  facet_grid(drv ~ cyl, scales = "free")
+
+mpg |> 
+  distinct(drv, cyl)
+
+mpg |> 
+  ggplot() + 
+  geom_point(aes(x = drv, y = cyl))
+
+ggplot(mpg) + 
+  geom_point(aes(x = displ, y = hwy)) +
+  facet_grid(drv ~ .)
+
+ggplot(mpg) + 
+  geom_point(aes(x = displ, y = hwy)) +
+  facet_wrap(drv ~ .)
+
+ggplot(mpg) + 
+  geom_point(aes(x = displ, y = hwy)) +
+  facet_grid(. ~ cyl)
+
+ggplot(mpg) + 
+  geom_point(aes(x = displ, y = hwy)) + 
+  facet_wrap(~ cyl, nrow = 2)
+
+ggplot(mpg, aes(x = displ)) + 
+  geom_histogram() + 
+  facet_grid(drv ~ .)
+
+ggplot(mpg, aes(x = displ)) + 
+  geom_histogram() +
+  facet_grid(. ~ drv)
+
+ggplot(mpg) +
+  geom_point(aes(x = displ, y = hwy)) +
+  facet_grid(drv ~ .)
+
+ggplot(mpg) +
+  geom_point(aes(x = displ, y = hwy)) +
+  facet_wrap(vars(drv))
+

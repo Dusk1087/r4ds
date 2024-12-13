@@ -115,3 +115,128 @@ ggplot(mpg, aes(x = displ, y = hwy)) +
 # Right
 ggplot(mpg, aes(x = displ, y = hwy)) +
   geom_smooth(aes(color = drv), show.legend = FALSE)
+
+
+# Working at home now 12/13 at 8:58 ---------------------------------------
+
+mpg |> 
+  ggplot(aes(x = displ, y = hwy)) +
+  geom_point(aes(color = class)) +
+  geom_smooth()
+
+mpg |> 
+  ggplot(aes(x = displ, y = hwy)) +
+  geom_point() +
+  geom_point(
+    data = mpg |> filter(class == "2seater"),
+    color = "red"
+  ) +
+  geom_point(
+    data = mpg |>  filter(class == "2seater"),
+    shape = 1,
+    size = 10,
+    color = "red"
+  )
+
+# geom examples -----------------------------------------------------------
+
+mpg |> 
+  ggplot(aes(x = hwy)) + 
+  geom_histogram(binwidth = 2)
+
+mpg |> 
+  ggplot(aes(x = hwy)) +
+  geom_density()
+
+mpg |> 
+  ggplot(aes(x = hwy)) +
+  geom_boxplot()
+
+
+# exploring the ggplot2 gallery / using library ggridges ------------------
+
+library(ggridges)
+mpg |> 
+  ggplot(aes(hwy, drv, fill = drv, color = drv)) +
+  geom_density_ridges(alpha = 0.5, show.legend = FALSE) +
+  geom_point()
+
+library(ggplot2)
+set.seed(123)  # For reproducibility
+
+
+mpg |> 
+  ggplot(aes(cty, hwy)) +
+  geom_point() +
+  facet_grid(col(fl))
+
+glimpse(mpg)
+mpg |> 
+  distinct(fl)
+
+mpg |> 
+  ggplot(aes(hwy, drv)) +
+  geom_point()
+
+
+# Picking this back up again 12/13 2:29pm ---------------------------------
+
+mpg |> 
+  ggplot(aes(x = displ, y = hwy)) +
+  geom_smooth(aes(color = drv), show.legend = FALSE)
+
+mpg |> 
+  ggplot(aes(x = displ, y = hwy)) +
+  geom_line()  
+
+mpg |> 
+  ggplot(aes(x = displ, y = hwy)) +
+  geom_area()  
+mpg |> 
+  ggplot(aes(x = fl, y = hwy)) +
+  geom_boxplot()  
+
+ggplot(mpg, aes(x = displ, y = hwy)) +
+  geom_smooth(aes(color = drv), show.legend = FALSE)
+
+ggplot(mpg, aes(x = displ, y = hwy)) +
+  geom_smooth(aes(color = drv))
+
+ggplot(mpg, aes(x = displ, y = hwy)) +
+  geom_smooth(aes(color = drv), level = .2)
+
+mpg |> 
+  distinct(drv)
+
+
+# 9.3.1 Exercise question 4 -----------------------------------------------
+
+mpg |> 
+  ggplot(aes(displ, hwy), ) +
+  geom_point(size = 5) +
+  geom_smooth(linewidth = 2, se = FALSE)
+
+mpg |> 
+  ggplot(aes(displ, hwy), ) +
+  geom_point(size = 5) +
+  geom_smooth(aes(group = drv), linewidth = 2, se = FALSE)
+
+mpg |> 
+  ggplot(aes(displ, hwy, color = drv), ) +
+  geom_point(size = 5) +
+  geom_smooth(aes(group = drv), linewidth = 2, se = FALSE)
+
+mpg |> 
+  ggplot(aes(displ, hwy)) +
+  geom_point(aes(color = drv), size = 5) +
+  geom_smooth( linewidth = 2, se = FALSE)
+
+mpg |> 
+  ggplot(aes(displ, hwy)) +
+  geom_point(aes(color = drv), size = 5) +
+  geom_smooth(aes(linetype = drv), linewidth = 2, se = FALSE)
+
+mpg |> 
+  ggplot(aes(displ, hwy)) +
+  geom_point(shape = 16, size = 10, alpha = .5, color = "white") +
+  geom_point(aes(color = drv), size = 5) 

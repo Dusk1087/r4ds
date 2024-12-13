@@ -81,3 +81,4 @@ ggplot(mpg, aes(x = displ, y = hwy, color = drv)) +
     fontface = "bold", size = 5, nudge_y = 2
   ) +
   theme(legend.position = "none")
+#20:41

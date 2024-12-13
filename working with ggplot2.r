@@ -81,4 +81,37 @@ ggplot(mpg, aes(x = displ, y = hwy, color = drv)) +
     fontface = "bold", size = 5, nudge_y = 2
   ) +
   theme(legend.position = "none")
-#20:41
+
+
+# Working at starbucks on 12/13 at 7:43 -----------------------------------
+
+mpg |> 
+  ggplot(aes(x = displ, y = hwy, color = drv)) +
+  geom_point() +
+  geom_smooth(aes(linetype = drv))
+
+mpg |> 
+  ggplot(aes(x = displ, y = hwy, color = drv)) +
+  geom_point() +
+  geom_smooth()
+
+mpg |> 
+  ggplot(aes(x = displ, y = hwy, color = drv)) +
+  geom_point() 
+
+
+mpg |> 
+  ggplot(aes(x = displ, y = hwy)) +
+  geom_point() +
+  geom_smooth(aes(linetype = drv))
+
+ggplot(mpg, aes(x = displ, y = hwy)) +
+  geom_smooth()
+
+# Middle
+ggplot(mpg, aes(x = displ, y = hwy)) +
+  geom_smooth(aes(group = drv))
+
+# Right
+ggplot(mpg, aes(x = displ, y = hwy)) +
+  geom_smooth(aes(color = drv), show.legend = FALSE)

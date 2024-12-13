@@ -1,4 +1,5 @@
 library(tidyverse)
+library(reprex)
 
 #enter data by column
 tibble(
@@ -15,3 +16,10 @@ tribble(
   3, "g", 0.60
 )
 
+y <- 1:4
+mean(y) 
+
+#literally copy the code you want and then execute the reprex()
+#reprex()
+
+tidyverse_update()

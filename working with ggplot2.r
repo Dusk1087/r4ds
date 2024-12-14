@@ -256,3 +256,43 @@ mpg |>
 
 mpg |> 
   distinct(drv, cyl)
+<<<<<<< HEAD
+=======
+
+mpg |> 
+  ggplot() + 
+  geom_point(aes(x = drv, y = cyl))
+
+ggplot(mpg) + 
+  geom_point(aes(x = displ, y = hwy)) +
+  facet_grid(drv ~ .)
+
+ggplot(mpg) + 
+  geom_point(aes(x = displ, y = hwy)) +
+  facet_wrap(drv ~ .)
+
+ggplot(mpg) + 
+  geom_point(aes(x = displ, y = hwy)) +
+  facet_grid(. ~ cyl)
+
+ggplot(mpg) + 
+  geom_point(aes(x = displ, y = hwy)) + 
+  facet_wrap(~ cyl, nrow = 2)
+
+ggplot(mpg, aes(x = displ)) + 
+  geom_histogram() + 
+  facet_grid(drv ~ .)
+
+ggplot(mpg, aes(x = displ)) + 
+  geom_histogram() +
+  facet_grid(. ~ drv)
+
+ggplot(mpg) +
+  geom_point(aes(x = displ, y = hwy)) +
+  facet_grid(drv ~ .)
+
+ggplot(mpg) +
+  geom_point(aes(x = displ, y = hwy)) +
+  facet_wrap(vars(drv))
+
+>>>>>>> 4ccce67cbdfa0207c78d5676870a1de430aca4bd

@@ -96,3 +96,32 @@ ggplot(mpg, aes(x = displ, y = hwy)) +
 
 ggplot(mpg, aes(x = displ)) +
   geom_boxplot()
+
+
+# working on debian 12/15 at 08:53 ----------------------------------------
+
+library(tidyverse)
+map_data
+
+bar <- ggplot(data = diamonds) + 
+  geom_bar(
+    mapping = aes(x = clarity, fill = clarity), 
+    show.legend = FALSE,
+    width = 1
+  ) + 
+  theme(aspect.ratio = 1)
+bar
+bar + coord_flip()
+bar + coord_polar()
+
+ggplot(data = mpg, mapping = aes(x = cty, y = hwy)) +
+  geom_point() + 
+  geom_abline() +
+  coord_fixed()
+
+
+ggplot(data = mpg, mapping = aes(x = cty, y = hwy)) +
+  geom_point() + 
+  geom_abline(slope = 2, intercept = 30) +
+  xlim(0, 100) +
+  ylim(0, 100) 

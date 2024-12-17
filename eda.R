@@ -49,5 +49,7 @@ flights |>
   ) |> 
   ggplot(aes(x = sched_dep_time)) +
   geom_freqpoly(aes(color = cancelled), binwidth = 1/4) +
+  facet_grid(cancelled ~ ., scales = "free_y") +
   facet_wrap(~ cancelled, scales = "free_y")
+
 

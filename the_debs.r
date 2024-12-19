@@ -168,7 +168,7 @@ ggplot(mpg, aes(x = displ, y = hwy, color = drv)) +
 
 
 # geom_text_repel example -------------------------------------------------
-
+?geom_text_repel
 
 potential_outliers <- mpg |> 
   filter(hwy > 40 | (hwy > 20 & displ >5)) 
@@ -183,8 +183,28 @@ ggplot(mpg, aes( x = displ, y = hwy)) +
     size = 3, 
     shape = "circle open"
   ) +
-  geom_hline(yintercept = 20, aes(color = "red")) +
-  geom_vline(xintercept = 3)
+  geom_rect(xmin = 2, xmax = 4, ymin = 20, ymax = 30, alpha = 1/100, color = "blue", fill = "white") +
+  geom_hline(yintercept = 15, linewidth = 2, color = "white") +
+  geom_segment(aes(x = 2, y = 20, xend = 5, yend = 30), arrow = arrow()) + 
+  annotate("text", x = 5, y = 35, label = "test")
+
+
+trend_text <- "Larger engine sizes tend to have lower fuel economy." |>
+  str_wrap(width = 30)
+trend_text
+
+ggplot(mpg, aes(x = displ, y = hwy)) +
+  geom_point() +
+  annotate(
+    geom = "label", x = 3.5, y = 38,
+    label = trend_text,
+    hjust = "left", color = "red"
+  ) +
+  annotate(
+    geom = "segment",
+    x = 3, y = 35, xend = 5, yend = 25, color = "blue",
+    arrow = arrow(length = unit(2, "cm"),type = "closed")
+  )
 
 # jumping ahead to the chapter on base R ----------------------------------
 

@@ -19,23 +19,19 @@ flights |>
   ) |> 
   arrange(
     desc(n)
-  ) |> 
-  print(n = Inf)
+  ) 
 
 flights |> 
   group_by(dest) |> 
   summarize(carriers = n_distinct(carrier)) |> 
-  arrange(desc(carriers)) |> 
-  print(n = Inf)
+  arrange(desc(carriers)) 
 
 flights |> 
   group_by(tailnum) |> 
   summarize(miles = sum(distance, na.rm = TRUE)) |> 
   arrange(desc(miles))
 
-flights |> 
-  print(n = Inf)
-view(flights)
+
 
 flights <- flights
 x <- flights
@@ -97,5 +93,8 @@ df |>
 
 flights |> 
   mutate(
-    hour = sked_dep_time %/% 100,
+    hour = sched_dep_time %/% 100,
+    min = sched_dep_time %% 100,
+    .keep = "used"
+  )
     

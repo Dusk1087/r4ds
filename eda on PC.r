@@ -185,3 +185,11 @@ ggplot(mpg, aes(x = displ, y = hwy, color = drv)) +
 #> 
 library(patchwork) 
 x = 1
+
+p1 <- ggplot(mpg, aes(x = displ, y = hwy)) + 
+  geom_point() + 
+  labs(title = "Plot 1")
+p2 <- ggplot(mpg, aes(x = drv, y = hwy)) + 
+  geom_boxplot() + 
+  labs(title = "Plot 2")
+p1 + p2
